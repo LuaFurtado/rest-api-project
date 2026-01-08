@@ -16,7 +16,13 @@ app.get("/books", (req, res) => {
     });
 
 app.get("/books/:id", (req, res) => {
-  res.send("Get book by id");
+  const id = Number(req.params.id);
+  const book = books.find(book => book.id === id);
+  if (book) {
+    res.json(book);
+  } else {
+    res.status(404).json({ message: "Book not found" });
+  }
 });
 
 app.listen(PORT, () => {
