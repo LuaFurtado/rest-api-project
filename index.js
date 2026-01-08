@@ -29,6 +29,12 @@ app.get("/books/:id", (req, res) => {
     }
 });
 
+// app.post("/books", (req, res) => {
+//   books.push(req.body);
+//   res.status(201).send("Book added successfully");
+// });
+
+
 app.post("/books", (req, res) => {
     const newBook = {
         id: books.length + 1,
