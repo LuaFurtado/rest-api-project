@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/LuaFurtado/rest-api-project/issues"
   },
-  "homepage": "https://github.com/LuaFurtado/rest-api-project#readme"
+  "homepage": "https://github.com/LuaFurtado/rest-api-project#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
 }
