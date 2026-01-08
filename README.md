@@ -38,18 +38,44 @@ This API exists to transform that intention into a structured, reusable backend 
 
 ---
 
-## 🔗 Planned Endpoints
+## Endpoints
 
-- `GET /books`  
-  Retrieve a list of all available books
+## Endpoints
 
-- `GET /books/:id`  
-  Retrieve detailed information about a specific book
+### GET /books
+Retrieve a list of all available books.
 
-- `GET /books/:id/download`  
-  Access download links for books licensed for free distribution
+### GET /books/:id
+Retrieve detailed information about a specific book by id.
+
+### POST /books
+Create a new book using JSON data sent in the request body.
+
+### PUT /books/:id
+Update an existing book by id using JSON data sent in the request body.
+
+### DELETE /books/:id
+Delete a book by id.
+
 
 ---
+
+## Postman Testing
+
+All CRUD endpoints were tested using Postman, including success and error cases.
+
+### GET all books
+![GET all books](docs/screenshots/GET.png)
+
+### POST create book
+![POST create book](docs/screenshots/POST.png)
+
+### PUT update book
+![PUT update book](docs/screenshots/PUT.png)
+
+### DELETE book
+![DELETE book](docs/screenshots/DELETE.png)
+
 
 ## ✨ Future Improvements
 
