@@ -13,7 +13,7 @@ I am a Brazilian mother raising my children in a multilingual environment. As my
 - Written in **Portuguese**
 - **Easy to read** for early readers
 - Emotionally meaningful — including stories that were important in my own childhood
-- **Legally licensed for free distribution** (not public domain)
+- **Legally licensed for free distribution** (or public domain)
 
 This API exists to transform that intention into a structured, reusable backend resource — combining **technology, language, and family connection**.
 
