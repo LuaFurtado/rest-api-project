@@ -45,7 +45,11 @@ app.put("/books/:id", (req, res) => {
 
     if (bookIndex !== -1) {
         // Update the book with new data from req.body
-        books[bookIndex] = { id, ...req.body };
+        books[bookIndex] = {
+            ...books[bookIndex],
+            ...req.body
+        };
+
         res.json(books[bookIndex]);
     } else {
         res.status(404).json({ message: "Book not found" });
