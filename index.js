@@ -56,6 +56,19 @@ app.put("/books/:id", (req, res) => {
     }
 });
 
+app.delete("/books/:id", (req, res) => {
+    const id = Number(req.params.id);
+    const bookIndex = books.findIndex(book => book.id === id);
+
+    if (bookIndex !== -1) {
+        // Remove the book from the array
+        const deletedBook = books.splice(bookIndex, 1);
+        res.json(deletedBook[0]);
+    } else {
+        res.status(404).json({ message: "Book deleted successfully" });
+    }
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
