@@ -38,15 +38,18 @@ const books = [
     pdf: "/assets/books/book-3.pdf"
   }
     },
-  {
-    id: 4,
-    title: "",
-    author: "",
-    year: "",
-    language: "pt-BR",
-    publicDomain: true,
-    description: "",
-    downloadUrl: ""
+ {
+  id: 4,
+  title: "A Importância dos Animais",
+  author: "Monica L. Andersen",
+  year: 2023,
+  language: "pt-BR",
+  publicDomain: false,
+  description: "Educational digital book that explains how animals contribute to scientific research and how these discoveries benefit society.",
+  assets: {
+    coverImage: "/assets/covers/book-4-cover.png",
+    pdf: "/assets/books/book-4.pdf"
+  }
   },
   {
     id: 5,
