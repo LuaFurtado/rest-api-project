@@ -51,16 +51,19 @@ const books = [
     pdf: "/assets/books/book-4.pdf"
   }
   },
-  {
-    id: 5,
-    title: "",
-    author: "",
-    year: "",
-    language: "pt-BR",
-    publicDomain: true,
-    description: "",
-    downloadUrl: ""
-  },
+ {
+  id: 5,
+  title: "Você Fala Minha Língua?",
+  author: "Sesinho",
+  year: 2019,
+  language: "pt-BR",
+  publicDomain: false,
+  description: "Educational digital book that highlights the importance of learning a second language and cultural exchange through the story of new international friends.",
+  assets: {
+    coverImage: "/assets/covers/book-5-cover.png",
+    pdf: "/assets/books/book-5.pdf"
+  }
+   },
   {
     id: 6,
     title: "",
