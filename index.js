@@ -62,10 +62,10 @@ app.delete("/books/:id", (req, res) => {
 
     if (bookIndex !== -1) {
         // Remove the book from the array
-        const deletedBook = books.splice(bookIndex, 1);
-        res.json(deletedBook[0]);
+        books.splice(bookIndex, 1);
+        res.json({ message: "Book deleted successfully" });
     } else {
-        res.status(404).json({ message: "Book deleted successfully" });
+        res.status(404).json({ message: "Book not found" });
     }
 });
 
