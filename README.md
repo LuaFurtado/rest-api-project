@@ -40,8 +40,6 @@ This API exists to transform that intention into a structured, reusable backend 
 
 ## Endpoints
 
-## Endpoints
-
 ### GET /books
 Retrieve a list of all available books.
 
