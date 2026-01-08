@@ -13,6 +13,10 @@ app.get("/books", (req, res) => {
     res.json(books);
     });
 
+app.get("/books/:id", (req, res) => {
+  res.send("Get book by id");
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
