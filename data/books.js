@@ -25,16 +25,19 @@ const books = [
     pdf: "/assets/books/book-2.pdf"
   }
  },
-  {
-    id: 3,
-    title: "",
-    author: "",
-    year: "",
-    language: "pt-BR",
-    publicDomain: true,
-    description: "",
-    downloadUrl: ""
-  },
+ {
+  id: 3,
+  title: "ECA em Miúdos",
+  author: "Ilana Trombka",
+  year: 2021,
+  language: "pt-BR",
+  publicDomain: false,
+  description: "Educational digital book that explains the rights and duties of children and adolescents, highlighting the importance of understanding legal protections for social development.",
+  assets: {
+    coverImage: "/assets/covers/book-3-cover.png",
+    pdf: "/assets/books/book-3.pdf"
+  }
+    },
   {
     id: 4,
     title: "",
