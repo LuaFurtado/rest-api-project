@@ -65,15 +65,18 @@ const books = [
   }
    },
   {
-    id: 6,
-    title: "",
-    author: "",
-    year: "",
-    language: "pt-BR",
-    publicDomain: true,
-    description: "",
-    downloadUrl: ""
-  },
+  id: 6,
+  title: "A Toca do Tatu",
+  author: "Carolina Rodrigues",
+  year: 2018,
+  language: "pt-BR",
+  publicDomain: false,
+  description: "Children's digital book that tells the story of a tatú-bola who dreams of building the most beautiful burrow in the forest, showing creativity, dedication, and imagination.",
+  assets: {
+    coverImage: "/assets/covers/book-6-cover.png",
+    pdf: "/assets/books/book-6.pdf"
+  }
+},
   {
     id: 7,
     title: "",
