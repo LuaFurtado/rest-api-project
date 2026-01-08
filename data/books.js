@@ -13,15 +13,18 @@ const books = [
   }
     },
     {
-    id: 2,
-    title: "",
-    author: "",
-    year: "",
-    language: "pt-BR",
-    publicDomain: true,
-    description: "",
-    downloadUrl: ""
-  },
+  id: 2,
+  title: "Os Direitos Humanos",
+  author: "Ziraldo",
+  year: 2008,
+  language: "pt-BR",
+  publicDomain: false,
+  description: "Illustrated educational book that presents the fundamental principles of Human Rights in a playful and accessible way, featuring characters from the Menino Maluquinho universe.",
+  assets: {
+    coverImage: "/assets/covers/book-2-cover.png",
+    pdf: "/assets/books/book-2.pdf"
+  }
+ },
   {
     id: 3,
     title: "",
