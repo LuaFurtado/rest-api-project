@@ -39,6 +39,19 @@ app.post("/books", (req, res) => {
     res.status(201).json(newBook);
 });
 
+app.put("/books/:id", (req, res) => {
+    const id = Number(req.params.id);
+    const bookIndex = books.findIndex(book => book.id === id);
+
+    if (bookIndex !== -1) {
+        // Update the book with new data from req.body
+        books[bookIndex] = { id, ...req.body };
+        res.json(books[bookIndex]);
+    } else {
+        res.status(404).json({ message: "Book not found" });
+    }
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
