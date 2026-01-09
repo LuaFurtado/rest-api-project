@@ -58,23 +58,6 @@ Delete a book by id.
 
 ---
 
-## Postman Testing
-
-All CRUD endpoints were tested using Postman, including success and error cases.
-
-### GET all books
-![GET all books](docs/screenshots/GET.png)
-
-### POST create book
-![POST create book](docs/screenshots/POST.png)
-
-### PUT update book
-![PUT update book](docs/screenshots/PUT.png)
-
-### DELETE book
-![DELETE book](docs/screenshots/DELETE.png)
-
-
 ## ✨ Future Improvements
 
 - Add book categories by reading level
