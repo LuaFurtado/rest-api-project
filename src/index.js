@@ -1,5 +1,7 @@
-import express from "express";
-import books from "./data/books.js";
+import express from "express"
+import books from "./data/books.js"
+import pool from "./db.js"
+
 
 
 const app = express();
@@ -28,6 +30,17 @@ app.get("/books/:id", (req, res) => {
         res.status(404).json({ message: "Book not found" });
     }
 });
+
+app.get("/db-books", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM books")
+    res.json(result.rows)
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ error: "Database error" })
+  }
+})
+
 
 // app.post("/books", (req, res) => {
 //   books.push(req.body);
