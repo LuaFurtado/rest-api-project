@@ -62,15 +62,22 @@ app.get("/db-books", async (req, res) => {
 // });
 
 
-app.post("/books", (req, res) => {
-    const newBook = {
-        id: books.length + 1,
-        ...req.body // Add all properties from req.body (sent by the client) to the new book
-    };
+app.post("/books", async (req, res) => {
+  const { title, author, year } = req.body;
 
-    books.push(newBook);
-    res.status(201).json(newBook);
+  try {
+    const result = await pool.query(
+      "INSERT INTO books (title, author, year) VALUES ($1, $2, $3) RETURNING *",
+      [title, author, year]
+    );
+
+    res.status(201).json(result.rows[0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error adding book" });
+  }
 });
+
 
 app.put("/books/:id", (req, res) => {
     const id = Number(req.params.id);
