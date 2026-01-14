@@ -14,8 +14,14 @@ app.get("/", (req, res) => {
     res.send("Book API is running");
 });
 // Return all books from the hardcoded data file
-app.get("/books", (req, res) => {
-    res.json(books);
+app.get("/books", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM books");
+    res.json(result.rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error fetching books" });
+  }
 });
 
 app.get("/books/:id", (req, res) => {
