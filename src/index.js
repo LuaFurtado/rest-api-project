@@ -63,12 +63,33 @@ app.get("/db-books", async (req, res) => {
 
 
 app.post("/books", async (req, res) => {
-  const { title, author, year } = req.body;
+  const {
+    title,
+    author,
+    year,
+    language,
+    public_domain,
+    description,
+    cover_url,
+    pdf_url
+  } = req.body;
 
   try {
     const result = await pool.query(
-      "INSERT INTO books (title, author, year) VALUES ($1, $2, $3) RETURNING *",
-      [title, author, year]
+      `INSERT INTO books
+      (title, author, year, language, public_domain, description, cover_url, pdf_url)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+      RETURNING *`,
+      [
+        title,
+        author,
+        year,
+        language,
+        public_domain,
+        description,
+        cover_url,
+        pdf_url
+      ]
     );
 
     res.status(201).json(result.rows[0]);
@@ -77,6 +98,7 @@ app.post("/books", async (req, res) => {
     res.status(500).json({ message: "Error adding book" });
   }
 });
+
 
 
 app.put("/books/:id", (req, res) => {
