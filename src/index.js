@@ -1,5 +1,4 @@
 import express from "express"
-import books from "./data/books.js"
 import pool from "./db.js"
 
 
