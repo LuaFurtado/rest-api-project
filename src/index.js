@@ -153,19 +153,22 @@ app.put("/books/:id", async (req, res) => {
 });
 
 
-app.delete("/books/:id", (req, res) => {
-    const id = Number(req.params.id);
-    const bookIndex = books.findIndex(book => book.id === id);
+app.delete("/books/:id", async (req, res) => {
+  const id = Number(req.params.id);
 
-    if (bookIndex !== -1) {
-        // Remove the book from the array
-        books.splice(bookIndex, 1);
-        res.json({ message: "Book deleted successfully" });
-    } else {
-        res.status(404).json({ message: "Book not found" });
+  try {
+    const result = await pool.query(
+      "DELETE FROM books WHERE id = $1 RETURNING *",
+      [id]
+    );
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({ message: "Book not found" });
     }
-});
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    res.json({ message: "Book deleted successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error deleting book" });
+  }
 });
