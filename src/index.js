@@ -171,3 +171,6 @@ app.delete("/books/:id", async (req, res) => {
     res.status(500).json({ message: "Error deleting book" });
   }
 });
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
