@@ -101,22 +101,57 @@ app.post("/books", async (req, res) => {
 
 
 
-app.put("/books/:id", (req, res) => {
-    const id = Number(req.params.id);
-    const bookIndex = books.findIndex(book => book.id === id);
+app.put("/books/:id", async (req, res) => {
+  const id = Number(req.params.id);
 
-    if (bookIndex !== -1) {
-        // Update the book with new data from req.body
-        books[bookIndex] = {
-            ...books[bookIndex],
-            ...req.body
-        };
+  const {
+    title,
+    author,
+    year,
+    language,
+    public_domain,
+    description,
+    cover_url,
+    pdf_url
+  } = req.body;
 
-        res.json(books[bookIndex]);
-    } else {
-        res.status(404).json({ message: "Book not found" });
+  try {
+    const result = await pool.query(
+      `UPDATE books
+       SET title = $1,
+           author = $2,
+           year = $3,
+           language = $4,
+           public_domain = $5,
+           description = $6,
+           cover_url = $7,
+           pdf_url = $8
+       WHERE id = $9
+       RETURNING *`,
+      [
+        title,
+        author,
+        year,
+        language,
+        public_domain,
+        description,
+        cover_url,
+        pdf_url,
+        id
+      ]
+    );
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({ message: "Book not found" });
     }
+
+    res.json(result.rows[0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error updating book" });
+  }
 });
+
 
 app.delete("/books/:id", (req, res) => {
     const id = Number(req.params.id);
