@@ -103,6 +103,12 @@ app.post("/books", async (req, res) => {
 app.put("/books/:id", async (req, res) => {
   const id = Number(req.params.id);
 
+  console.log("REQ BODY:", req.body);
+
+  if (!req.body) {
+    return res.status(400).json({ message: "Request body is missing" });
+  }
+
   const {
     title,
     author,
@@ -113,6 +119,8 @@ app.put("/books/:id", async (req, res) => {
     cover_url,
     pdf_url
   } = req.body;
+
+
 
   try {
     const result = await pool.query(
